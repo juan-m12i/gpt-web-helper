@@ -1,6 +1,9 @@
 fastapi
 jinja2
 tailwindcss
-transformers[torch]
+#transformers[torch]
+transformers
 httpx[http2]
+python-multipart
+uvicorn
 
