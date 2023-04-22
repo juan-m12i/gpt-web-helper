@@ -24,21 +24,21 @@
         <h1 class="title has-text-centered">Token Counter</h1>
         <div class="columns">
             <div class="column is-8 is-offset-2">
-                <form id="token-count-form" method="post">
+                <form id="token-counter-form" method="post">
                     <div class="field">
                         <label class="label">Enter text to count tokens</label>
                         <div class="control">
-                            <textarea class="textarea" name="text"></textarea>
+                            <textarea id="token-counter-textarea" class="textarea" name="text" disabled></textarea>
                         </div>
                     </div>
                     <div class="field">
                         <div class="control">
-                            <button id="count-tokens-btn" class="button is-link" type="button">Count Tokens</button>
-                            <button id="clear-btn" class="button is-danger" type="button" style="display: none">Clear</button>
+                            <button id="token-counter-submit-button" class="button is-link" type="button" disabled>Count Tokens</button>
+                            <button id="token-counter-clear-button" class="button is-danger" type="button">Clear</button>
                         </div>
                     </div>
                 </form>
-                <p id="token-count-msg" class="subtitle is-4" style="display: none"></p>
+                <p id="token-counter-message" class="subtitle is-4" style="display: none"></p>
             </div>
         </div>
     </div>
