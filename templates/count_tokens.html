@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Token Counter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .textarea {
+            min-height: 300px;
+        }
+
+        .button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title has-text-centered">Token Counter</h1>
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <form action="/" method="post">
+                    <div class="field">
+                        <label class="label">Enter text to count tokens</label>
+                        <div class="control">
+                            <textarea class="textarea" name="text"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-link" type="submit">Count Tokens</button>
+                        </div>
+                    </div>
+                </form>
+                {% if token_count is not none %}
+                    <p class="subtitle is-4">The text has {{ token_count }} tokens.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
