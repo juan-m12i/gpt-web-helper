@@ -1,0 +1,6 @@
+fastapi
+jinja2
+tailwindcss
+transformers[torch]
+httpx[http2]
+
