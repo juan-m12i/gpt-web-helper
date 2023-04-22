@@ -28,4 +28,3 @@ def read_root(request: Request):
 @app.post("/count-tokens")
 def count_tokens_route(text: str = Form(...)) -> List[int]:
     return count_tokens(text)
-
