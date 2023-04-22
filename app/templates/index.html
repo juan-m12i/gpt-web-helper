@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <title>Token Counter</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Token Counter</h1>
+        <form id="token-counter-form">
+            <textarea id="text-input" name="text" rows="10" cols="30"></textarea>
+            <button type="submit">Count Tokens</button>
+        </form>
+        <p id="token-count"></p>
+    </div>
+    <script>
+        const form = document.getElementById("token-counter-form");
+        const textInput = document.getElementById("text-input");
+        const tokenCount = document.getElementById("token-count");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch("/count_tokens", {
+                method: "POST",
+                body: formData,
+            });
+            const data = await response.json();
+            tokenCount.textContent = `Token Count: ${data.token_count}`;
+        });
+    </script>
+</body>
+</html>

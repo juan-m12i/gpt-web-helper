@@ -1,0 +1,11 @@
+fastapi
+jinja2
+uvicorn
+gunicorn
+httpx
+transformers
+PyYAML
+python-dotenv
+tailwindcss
+python-multipart
+
