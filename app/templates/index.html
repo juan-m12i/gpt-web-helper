@@ -23,34 +23,6 @@
         </form>
         <p id="token-count" class="text-center text-lg"></p>
     </div>
-    <script>
-        const form = document.getElementById("token-counter-form");
-        const textInput = document.getElementById("text-input");
-        const tokenCount = document.getElementById("token-count");
-        const countTokensBtn = document.getElementById("count-tokens-btn");
-        const clearBtn = document.getElementById("clear-btn");
-
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const response = await fetch("/count_tokens", {
-                method: "POST",
-                body: formData,
-            });
-            const data = await response.json();
-            tokenCount.textContent = `Token Count: ${data.token_count}`;
-            textInput.disabled = true;
-            countTokensBtn.disabled = true;
-            clearBtn.disabled = false;
-        });
-
-        clearBtn.addEventListener("click", () => {
-            textInput.disabled = false;
-            textInput.value = "";
-            countTokensBtn.disabled = false;
-            clearBtn.disabled = true;
-            tokenCount.textContent = "";
-        });
-    </script>
+    <script src="/static/js/app.js"></script>
 </body>
 </html>
