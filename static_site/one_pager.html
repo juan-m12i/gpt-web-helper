@@ -9,6 +9,26 @@
     <title>Token Counter</title>
 </head>
 <body class="bg-gray-100">
+    <script>
+      const form = document.getElementById("token-counter-form");
+    const textInput = document.getElementById("text-input");
+    const tokenCount = document.getElementById("token-count");
+    const clearButton = document.getElementById("clear-btn");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const text = textInput.value;
+        const encoded = encode(text);
+        tokenCount.textContent = `Token Count: ${encoded.length}`;
+        textInput.disabled = true;
+    });
+
+    clearButton.addEventListener("click", () => {
+        textInput.disabled = false;
+        textInput.value = "";
+        tokenCount.textContent = "";
+    });
+    </script>
     <div class="container mx-auto py-10 px-4">
         <h1 class="text-4xl mb-6 text-center">Token Counter</h1>
         <form id="token-counter-form" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

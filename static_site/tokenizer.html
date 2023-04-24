@@ -25,6 +25,7 @@
             const tokens = await response.text();
             tokenCount.textContent = `Token Count: ${tokens}`;
             textInput.disabled = true;
+            clearButton.disabled = false;
         });
 
         clearButton.addEventListener("click", () => { // Update this line
