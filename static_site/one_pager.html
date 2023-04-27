@@ -29,6 +29,7 @@
           const encoded = encode(text);
           tokenCount.textContent = `Token Count: ${encoded.length}`;
           textInput.disabled = true;
+          clearBtn.disabled = false;
         });
 
         clearButton.addEventListener("click", () => {
