@@ -22,6 +22,7 @@
         const textInput = document.getElementById("text-input");
         const tokenCount = document.getElementById("token-count");
         const clearButton = document.getElementById("clear-btn");
+        const countTokensButton = document.getElementById("count-tokens-btn");
 
         form.addEventListener("submit", (event) => {
           event.preventDefault();
@@ -35,8 +36,8 @@
         clearButton.addEventListener("click", () => {
             textInput.disabled = false;
             textInput.value = "";
-            countTokensBtn.disabled = false;
-            clearBtn.disabled = true;
+            countTokensButton.disabled = false;
+            clearButton.disabled = true;
             tokenCount.textContent = "";
             textInput.classList.remove("bg-gray-200");
         });
