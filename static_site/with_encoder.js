@@ -10,7 +10,7 @@ form.addEventListener("submit", (event) => {
     const encoded = encode(text);
     tokenCount.textContent = `Token Count: ${encoded.length}`;
     textInput.disabled = true;
-    clearBtn.disabled = false;
+    clearButton.disabled = false;
   });
 
 clearButton.addEventListener("click", () => {
