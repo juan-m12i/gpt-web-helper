@@ -1,3 +1,7 @@
+.idea
+.DS_Store
+app-data
+
 __pycache__
 *.pyc
 *.pyo
