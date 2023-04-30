@@ -24,11 +24,6 @@ jobs:
       - name: Generate one_pager.html
         run: npm run inline
 
-      - name: Move one_pager.html to docs folder
-        run: |
-          mkdir -p docs
-          mv index-inline.html docs/one_pager.html
-
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -10,9 +10,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "inliner": "^1.13.1"
-  },
   "devDependencies": {
     "inliner": "^1.13.1"
   }
