@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "inline": "html-inline -i index.html -o index-inline.html"
+    "inline": "inliner -n --skip-absolute-urls static_site/index.html > docs/index-inline.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "inliner": "^1.13.1"
+  },
   "devDependencies": {
-    "html-inline": "^1.2.0"
+    "inliner": "^1.13.1"
   }
 }
