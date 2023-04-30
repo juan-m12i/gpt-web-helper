@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "inline": "inliner -n --skip-absolute-urls static_site/index.html > docs/index-inline.html"
+    "inline": "mkdir -p dist && inliner -n --skip-absolute-urls static_site/index.html > dist/index-inline.html"
   },
   "keywords": [],
   "author": "",
