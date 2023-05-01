@@ -21,12 +21,25 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install tree
+        run: sudo apt install -y tree
+
+      - name: Show directory structure
+        run: tree
+
+
       - name: Generate index-inline.html
         run: npm run inline
+
+      - name: Show directory structure 2
+        run: tree
 
       - name: Check npm run inline output
         run: |
           cat dist/index-inline.html
+
+      - name: Show directory structure 3
+        run: tree
 
       - name: Check dist directory
         run: |
@@ -37,6 +50,9 @@ jobs:
           mkdir temp_publish
           cp -R static_site/one_pager.html temp_publish/
           cp -R dist/index-inline.html temp_publish/
+
+      - name: Show directory structure 4
+        run: tree
 
       - name: Check generated files
         run: |
