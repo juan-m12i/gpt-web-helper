@@ -81,3 +81,4 @@ jobs:
           publish_branch: gh-pages
           destination_dir: docs
           keep_files: false
+          allow_empty_commit: true
