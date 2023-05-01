@@ -24,6 +24,10 @@ jobs:
       - name: Generate index-inline.html
         run: npm run inline
 
+      - name: Check npm run inline output
+        run: |
+          cat dist/index-inline.html
+
       - name: Check dist directory
         run: |
           ls -la dist
