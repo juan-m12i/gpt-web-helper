@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Generate one_pager.html
+      - name: Generate index-inline.html
         run: npm run inline
 
       - name: Move generated files to a temporary directory
