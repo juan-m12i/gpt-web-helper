@@ -27,8 +27,12 @@ jobs:
       - name: Move generated files to a temporary directory
         run: |
           mkdir temp_publish
-          cp static_site/one_pager.html temp_publish/
-          cp dist/index-inline.html temp_publish/
+          cp -R static_site/one_pager.html temp_publish/
+          cp -R dist/index-inline.html temp_publish/
+
+      - name: Check generated files
+        run: |
+          ls -la temp_publish
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
