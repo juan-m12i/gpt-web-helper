@@ -12,4 +12,8 @@
 ### One pager link for static github hosted page
 https://juan-m12i.github.io/gpt-web-helper/one_pager.html
 
+## Generating the one pager via file combination
+npm run inline
+
+
 ## testing github runners to publish
