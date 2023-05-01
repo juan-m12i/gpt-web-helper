@@ -25,21 +25,21 @@ jobs:
         run: sudo apt install -y tree
 
       - name: Show directory structure
-        run: tree
+        run: tree -I 'node_modules'
 
 
       - name: Generate index-inline.html
         run: npm run inline
 
       - name: Show directory structure 2
-        run: tree
+        run: tree -I 'node_modules'
 
       - name: Check npm run inline output
         run: |
           cat dist/index-inline.html
 
       - name: Show directory structure 3
-        run: tree
+        run: tree -I 'node_modules'
 
       - name: Check dist directory
         run: |
@@ -52,7 +52,7 @@ jobs:
           cp -R dist/index-inline.html temp_publish/
 
       - name: Show directory structure 4
-        run: tree
+        run: tree -I 'node_modules'
 
       - name: Check generated files
         run: |
