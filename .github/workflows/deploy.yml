@@ -59,8 +59,8 @@ jobs:
           ls -la temp_publish
 
       - name: Clone gh-pages branch
-          run: |
-            git clone --depth=1 --branch=gh-pages https://github.com/juan-m12i/gpt-web-helper.git temp_gh-pages
+        run: |
+          git clone --depth=1 --branch=gh-pages https://github.com/juan-m12i/gpt-web-helper.git temp_gh-pages
 
       - name: Show directory structure of cloned gh-pages
         run: |
