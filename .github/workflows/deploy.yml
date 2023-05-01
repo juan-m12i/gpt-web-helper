@@ -24,6 +24,10 @@ jobs:
       - name: Generate index-inline.html
         run: npm run inline
 
+      - name: Check dist directory
+        run: |
+          ls -la dist
+
       - name: Move generated files to a temporary directory
         run: |
           mkdir temp_publish
