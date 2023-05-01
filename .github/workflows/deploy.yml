@@ -72,14 +72,23 @@ jobs:
           mkdir -p temp_gh-pages/docs
           diff -qr temp_publish temp_gh-pages/docs
 
-
       - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./temp_publish
-          publish_branch: gh-pages
-          destination_dir: docs
-          keep_files: true
-          allow_empty_commit: true
+          token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          folder: temp_publish
+          target-folder: docs
+          clean: false
+
+
+#      - name: Deploy to gh-pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GH_TOKEN }}
+#          publish_dir: ./temp_publish
+#          publish_branch: gh-pages
+#          destination_dir: docs
+#          keep_files: true
+#          allow_empty_commit: true
 
