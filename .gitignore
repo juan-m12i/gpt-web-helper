@@ -1,7 +1,6 @@
 .idea
 .DS_Store
 app-data
-# dist/
 
 __pycache__
 *.pyc

@@ -58,6 +58,19 @@ jobs:
         run: |
           ls -la temp_publish
 
+      - name: Clone gh-pages branch
+          run: |
+            git clone --depth=1 --branch=gh-pages https://github.com/juan-m12i/gpt-web-helper.git temp_gh-pages
+
+      - name: Show directory structure of cloned gh-pages
+        run: |
+          cd temp_gh-pages
+          tree -I 'node_modules'
+
+      - name: Compare temp_publish and temp_gh-pages
+        run: |
+          diff -qr temp_publish temp_gh-pages/docs
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
