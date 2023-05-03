@@ -1,0 +1,94 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install tree
+        run: sudo apt install -y tree
+
+      - name: Show directory structure
+        run: tree -I 'node_modules'
+
+
+      - name: Generate index-inline.html
+        run: npm run inline
+
+      - name: Show directory structure 2
+        run: tree -I 'node_modules'
+
+      - name: Check npm run inline output
+        run: |
+          cat dist/index-inline.html
+
+      - name: Show directory structure 3
+        run: tree -I 'node_modules'
+
+      - name: Check dist directory
+        run: |
+          ls -la dist
+
+      - name: Move generated files to a temporary directory
+        run: |
+          mkdir temp_publish
+          cp -R static_site/one_pager.html temp_publish/
+          cp -R dist/index-inline.html temp_publish/
+
+      - name: Show directory structure 4
+        run: tree -I 'node_modules'
+
+      - name: Check generated files
+        run: |
+          ls -la temp_publish
+
+      - name: Clone gh-pages branch
+        run: |
+          git clone --depth=1 --branch=gh-pages https://github.com/juan-m12i/gpt-web-helper.git temp_gh-pages
+
+      - name: Show directory structure of cloned gh-pages
+        run: |
+          cd temp_gh-pages
+          tree -I 'node_modules'
+
+      - name: Compare temp_publish and temp_gh-pages
+        run: |
+          mkdir -p temp_gh-pages/docs
+          diff -qr temp_publish temp_gh-pages/docs
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          folder: temp_publish
+          target-folder: docs
+          clean: false
+
+
+#      - name: Deploy to gh-pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GH_TOKEN }}
+#          publish_dir: ./temp_publish
+#          publish_branch: gh-pages
+#          destination_dir: docs
+#          keep_files: true
+#          allow_empty_commit: true
+
